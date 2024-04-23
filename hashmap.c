@@ -45,9 +45,9 @@ void insertMap(HashMap * map, char * key, void * value)
   //conozco la posicion
   long pos = hash(key, map->capacity);
   //si la posicion esta ocupada metodo resolucion de colisiones
-  while(map->buckets[pos%map->capacity] != NULL)
+  while(map->buckets[pos % map->capacity] != NULL)
     pos++;
-  map->buckets[pos&map->capacity] = pair;
+  map->buckets[pos % map->capacity] = pair;
   (map->size)++;
 
 }
