@@ -79,7 +79,7 @@ void eraseMap(HashMap * map,  char * key) {
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
-  long pos = hash(key, map->capacity);
+  //long pos = hash(key, map->capacity);
 
     return NULL;
 }
