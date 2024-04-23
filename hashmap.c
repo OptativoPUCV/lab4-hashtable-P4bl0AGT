@@ -91,7 +91,7 @@ Pair * searchMap(HashMap * map,  char * key) {
       pair = map->buckets[pos % map->capacity];
     }
     map->current = pos % map->capacity;
-    return pair
+    return pair;
   
   /*while( strcmp(pair->key, key) )
   {
