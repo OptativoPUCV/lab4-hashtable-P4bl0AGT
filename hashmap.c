@@ -100,9 +100,17 @@ Pair * searchMap(HashMap * map,  char * key) {
     return pair;
 }
 
-Pair * firstMap(HashMap * map) {
-
-    return map->buckets[0];
+Pair * firstMap(HashMap * map)
+{
+  long pos = 0;
+  Pair *pair = map->buckets[pos];
+  while(pair != NULL)
+  {
+    pos++;
+    pair = map->buckets[pos];
+  }
+  return pair;
+  
 }
 
 Pair * nextMap(HashMap * map) {
