@@ -88,8 +88,18 @@ Pair * searchMap(HashMap * map,  char * key) {
   
   long pos = hash(key, map->capacity);
   Pair *pair = map->buckets[pos % map->capacity];
+
+  for(long i = pos ; i < map->capacity ; i++)
+  {
+    if( !strcmp(pair->key, key) )
+    {
+      map->current = i;
+      return pair;
+    }
+  }
+  return NULL;
   
-  while( strcmp(pair->key, key) )
+  /*while( strcmp(pair->key, key) )
     {
       pos++;
       pair = map->buckets[pos % map->capacity];
@@ -97,7 +107,7 @@ Pair * searchMap(HashMap * map,  char * key) {
         return NULL;
     }
     map->current = pos % map->capacity;
-    return pair;
+    return pair;*/
 }
 
 Pair * firstMap(HashMap * map)
@@ -116,9 +126,8 @@ Pair * firstMap(HashMap * map)
   
 }
 
-Pair * nextMap(HashMap * map) {
-
-  //Pair *firstPair = firstMap(map);
+Pair * nextMap(HashMap * map)
+{
   for(long i = (map->current + 1) ; i < map->capacity ; i++)
   {
     Pair *pair = map->buckets[i];
@@ -129,6 +138,4 @@ Pair * nextMap(HashMap * map) {
     }
   }
   return NULL;
-  
-    return NULL;
 }
