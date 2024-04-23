@@ -271,3 +271,14 @@ Tue 23 Apr 2024 03:31:34 AM UTC:
  tests:  8|3
 total_score: 40/70
 ee625d6
+Tue 23 Apr 2024 03:32:31 AM UTC: 
+ hashmap.c | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:78:8: error: unused variable ‘pos’ [-Werror=unused-variable]
+   78 |   long pos = hash(key, map->capacity);
+      |        ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+6b1f0cc
