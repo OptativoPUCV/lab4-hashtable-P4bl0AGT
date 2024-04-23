@@ -54,8 +54,19 @@ void insertMap(HashMap * map, char * key, void * value)
 
 }
 
-void enlarge(HashMap * map) {
-    enlarge_called = 1; //no borrar (testing purposes)
+void enlarge(HashMap * map)
+{
+  enlarge_called = 1; //no borrar (testing purposes)
+  Pair **oldBuckets = map->buckets;
+  long oldCapacity = map->capacity;
+  map->capacity = map->capacity * 2;
+  map->buckets = (Pair **) malloc(sizeof(Pair *) * map->capacity);
+  for(long i = 0 ; i < map->capacity ; i++)
+    map->buckets[i] = NULL;
+  map->size = 0;
+
+  for (long i = 0 ; i < oldCapacity ; i++)
+    insertMap(map, oldBuckets[i]->key, oldBuckets[i]->value);
 
 
 }
@@ -87,8 +98,6 @@ void eraseMap(HashMap * map,  char * key)
 Pair * searchMap(HashMap * map,  char * key) {   
   
   long pos = hash(key, map->capacity);
-  
-
   for(long i = pos ; i < map->capacity ; i++)
   {
     Pair *pair = map->buckets[i];
@@ -97,7 +106,6 @@ Pair * searchMap(HashMap * map,  char * key) {
       map->current = i;
       return pair;
     }
-    
   }
   return NULL;
   
