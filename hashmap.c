@@ -119,7 +119,7 @@ Pair * firstMap(HashMap * map)
 Pair * nextMap(HashMap * map) {
 
   //Pair *firstPair = firstMap(map);
-  for(long i = map->current ; i < map->capacity ; i++)
+  for(long i = (map->current + 1) ; i < map->capacity ; i++)
   {
     Pair *pair = map->buckets[i];
     if(pair != NULL && pair->key != NULL)
