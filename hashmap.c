@@ -91,12 +91,13 @@ Pair * searchMap(HashMap * map,  char * key) {
 
   for(long i = pos ; i < map->capacity ; i++)
   {
+    pair = map->buckets[i];
     if( strcmp(pair->key, key) == 1)
     {
       map->current = i;
       return pair;
     }
-    pair = map->buckets[i];
+    
   }
   return NULL;
   
