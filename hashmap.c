@@ -85,10 +85,10 @@ Pair * searchMap(HashMap * map,  char * key) {
   
   while( strcmp(pair->key, key) )
     {
-      if(pair == NULL)
-        return NULL;
       pos++;
       pair = map->buckets[pos % map->capacity];
+      if(pair == NULL)
+        return NULL;
     }
     map->current = pos % map->capacity;
     return pair;
