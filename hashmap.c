@@ -87,7 +87,7 @@ Pair * searchMap(HashMap * map,  char * key) {
     pos++;
     pair = map->buckets[pos % map->capacity];
   }
-  
+  map->current = pos % map->capacity;
 
   return pair;
 }
