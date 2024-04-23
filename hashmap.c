@@ -44,10 +44,11 @@ void insertMap(HashMap * map, char * key, void * value)
   Pair *pair = createPair(key, value);
   //conozco la posicion
   long pos = hash(key, map->capacity);
+  pos = pos % 6;
   //si la posicion esta ocupada metodo resolucion de colisiones
   while(map->buckets[pos%6] != NULL)
     pos++;
-  map->buckets[pos] = pair;
+  map->buckets[pos&6] = pair;
   (map->size)++;
 
 }
