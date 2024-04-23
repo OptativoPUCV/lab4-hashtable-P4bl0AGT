@@ -51,3 +51,48 @@ Tue 23 Apr 2024 03:05:11 AM UTC:
  tests:  0|6
 total_score: 0/70
 485667b
+Tue 23 Apr 2024 03:06:24 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:56:52: error: expected ‘)’ before ‘;’ token
+   56 |   HashMap *map = (HashMap *) malloc(sizeof(HashMap);
+      |                                    ~               ^
+      |                                                    )
+hashmap.c:64:1: error: expected ‘,’ or ‘;’ before ‘}’ token
+   64 | }
+      | ^
+test.c:453:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  453 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:511:1: error: expected declaration or statement at end of input
+  511 | }
+      | ^
+In file included from test.c:4:
+hashmap.c:56:12: error: unused variable ‘map’ [-Werror=unused-variable]
+   56 |   HashMap *map = (HashMap *) malloc(sizeof(HashMap);
+      |            ^~~
+test.c:512: error: control reaches end of non-void function [-Werror=return-type]
+At top level:
+test.c:453:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  453 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:217:5: error: ‘insert_test5’ defined but not used [-Werror=unused-function]
+  217 | int insert_test5(){ //factor de carga>0.7, se llama a función enlarge
+      |     ^~~~~~~~~~~~
+test.c:131:6: error: ‘compare_test’ defined but not used [-Werror=unused-function]
+  131 | void compare_test(){
+      |      ^~~~~~~~~~~~
+test.c:125:6: error: ‘hash_test3’ defined but not used [-Werror=unused-function]
+  125 | void hash_test3(){ //no random
+      |      ^~~~~~~~~~
+test.c:111:6: error: ‘hash_test2’ defined but not used [-Werror=unused-function]
+  111 | void hash_test2(){ // colisiones
+      |      ^~~~~~~~~~
+test.c:100:6: error: ‘hash_test1’ defined but not used [-Werror=unused-function]
+  100 | void hash_test1(){ // posición válida
+      |      ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+f031820
