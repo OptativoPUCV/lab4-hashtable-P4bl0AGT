@@ -82,15 +82,24 @@ Pair * searchMap(HashMap * map,  char * key) {
   
   long pos = hash(key, map->capacity);
   Pair *pair = map->buckets[pos % map->capacity];
+  
   while( strcmp(pair->key, key) )
+    {
+      if(pair == NULL)
+        return pair;
+      pos++;
+      pair = map->buckets[pos % map->capacity];
+    }
+    map->current = pos % map->capacity;
+    return pair
+  
+  /*while( strcmp(pair->key, key) )
   {
-    if(pos % map->capacity == map->capacity)
-      return NULL;
     pos++;
     pair = map->buckets[pos % map->capacity];
   }
   map->current = pos % map->capacity;
-  return pair;
+  return pair;*/
 }
 
 Pair * firstMap(HashMap * map) {
