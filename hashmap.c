@@ -104,7 +104,7 @@ Pair * firstMap(HashMap * map)
 {
   long pos = 0;
   Pair *pair = map->buckets[pos];
-  while(pair != NULL)
+  while(pair->key != NULL)
   {
     pos++;
     pair = map->buckets[pos];
