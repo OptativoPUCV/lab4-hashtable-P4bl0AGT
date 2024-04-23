@@ -84,7 +84,7 @@ Pair * searchMap(HashMap * map,  char * key) {
   Pair *pair = map->buckets[pos % map->capacity];
   while( strcmp(pair->key, key) )
   {
-    if(pos == map->capacity)
+    if(pos % map->capacity == map->capacity)
       return NULL;
     pos++;
     pair = map->buckets[pos % map->capacity];
