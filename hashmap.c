@@ -108,6 +108,8 @@ Pair * firstMap(HashMap * map)
   {
     pos++;
     pair = map->buckets[pos];
+    if(pair->key == NULL)
+      return NULL;
   }
   return pair;
   
