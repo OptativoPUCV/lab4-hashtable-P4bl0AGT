@@ -132,12 +132,12 @@ Pair *pair = map->buckets[pos % map->capacity];
 
 Pair * firstMap(HashMap * map)
 {
-  for(long i = 0 ; i < map->capacity ; i++)
+  for(long pos = 0 ; pos < map->capacity ; pos++)
   {
     Pair *pair = map->buckets[i];
     if(pair != NULL && pair->key != NULL)
     {
-      map->current = i;
+      map->current = pos;
       return pair;
     }
   }
@@ -146,12 +146,12 @@ Pair * firstMap(HashMap * map)
 
 Pair * nextMap(HashMap * map)
 {
-  for(long i = (map->current + 1) ; i < map->capacity ; i++)
+  for(long pos = (map->current + 1) ; pos < map->capacity ; pos++)
   {
-    Pair *pair = map->buckets[i];
+    Pair *pair = map->buckets[pos];
     if(pair != NULL && pair->key != NULL)
     {
-      map->current = i;
+      map->current = pos;
       return pair;
     }
   }
