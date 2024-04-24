@@ -134,7 +134,7 @@ Pair * firstMap(HashMap * map)
 {
   for(long pos = 0 ; pos < map->capacity ; pos++)
   {
-    Pair *pair = map->buckets[i];
+    Pair *pair = map->buckets[pos];
     if(pair != NULL && pair->key != NULL)
     {
       map->current = pos;
