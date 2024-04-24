@@ -65,14 +65,14 @@ void enlarge(HashMap * map)
   long oldCapacity = map->capacity;
   map->capacity = map->capacity * 2;
   map->buckets = (Pair **) malloc(sizeof(Pair *) * map->capacity);
-  for(long i = 0 ; i < map->capacity ; i++)
-    map->buckets[i] = NULL;
+  for(long pos = 0 ; pos < map->capacity ; pos++)
+    map->buckets[pos] = NULL;
   map->size = 0;
 
-  for (long i = 0 ; i < oldCapacity ; i++)
+  for (long pos= 0 ; pos < oldCapacity ; pos++)
   {
-    if(oldBuckets[i] != NULL)
-      insertMap(map, oldBuckets[i]->key, oldBuckets[i]->value);
+    if(oldBuckets[pos] != NULL)
+      insertMap(map, oldBuckets[pos]->key, oldBuckets[pos]->value);
   }
 
 }
